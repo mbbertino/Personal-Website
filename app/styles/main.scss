@@ -1,11 +1,13 @@
+@import "compass/css3/transition";
+
 body * {
   vertical-align: top;
 }
 
 body {
+  color: #6c6c6c;
   background: rgb(236,236,236);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  font-family: 'Lato', sans-serif;
   margin: 0 0;
 }
 
@@ -53,6 +55,53 @@ body {
   text-transform: uppercase;
 }
 
+.transsheet {
+  display: none;
+  position: fixed;
+  top: 80px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 80;
+}
+
+.popupbox { 
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    height:375px; 
+    box-shadow: 1px 1px 15px #6c6c6c;
+    width:780px;  
+    background:#fff;  
+    border: 5px solid #6c6c6c;
+    left: 300px;
+    top: 200px;
+    z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px; 
+    overflow: scroll; 
+
+
+  .scrollimg {
+    display: inline-block;
+    height: 300px;
+    margin-top: 20px;
+    width: 2100px;
+
+
+    .scrimg {
+      display: inline-block;
+      margin: 5px 5px;
+      float: left;
+    }
+  }
+  .popupboxclose {
+    font-size:20px;  
+    line-height:15px;  
+    right:5px;  
+    top:5px;  
+    position:absolute;  
+    font-weight:500;      
+  }
+}
 .container {
   position: relative;
   width: 960px;
@@ -64,12 +113,12 @@ body {
   top:0;
   left: 0;
   right: 0;
-  height: 85px;
+  height: 80px;
   width: 100%;
   box-shadow: 1px 1px 1px #fff;
-  background-color: lighten(rgb(236,236,236),20%);
+  background-color: rgba(255, 255, 255, 0.85);
   border-bottom: 1px solid rgb(236,236,236);
-  z-index: 100;
+  z-index: 50;
 
   .innerheader {
     position: relative;
@@ -79,23 +128,36 @@ body {
     margin: auto auto;
     
     .headernav{
+      width: 830px;
       position: absolute;
       top: 0;
       height: 100px;
-      margin-top: 0; 
+      margin-top: -5px; 
       display: inline-block;
       list-style: none;
-      color: black;
       text-transform: uppercase;
 
       .listitem{
         font-size: 24px;
+
         &.name {
-          border-bottom: 1px solid black;
+          text-decoration: underline;
           font-size: 45px;
+        }
+        &.email {
+          font-size: 16px;
+          position: absolute;
+          right: 0;
+          margin-top: -47px;
+          @include transition (all .5s ease);
+          
+          &:hover {
+            color:#ef5545;
+          }
         }
       }
     }
+
     .headlogo {
       position: relative;
       height: 70px;
@@ -105,47 +167,116 @@ body {
   }
 }
 
-.content {
-  position: relative;
-  height: 520px;
-  top: 80px;
-  background: url(/images/bg.png) center center no-repeat #000;
-  background-size: cover;
-  
-  .banner {
-    line-height: 520px;
-    text-align: center;
-    color: #fff;
-    text-transform: uppercase;
+.sectiononewrapper {
+  height: 730px;
 
-    .head{
-      width: 600px;
-      background: rgba(149, 149, 149, 0.52);
-      position: relative;
-      font-size: 50px;
-
-    }
-  }
-
-  .letsconnect {
+  .content {
     position: relative;
-    height:200px;
-    width: 100%;
-    line-height: 200px;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: rgb(236,236,236);
-    display: inline-block;
-    .connect {
-      margin-right: 35px;
-      font-size: 35px;
+    height: 520px;
+    top: 80px;
+    background: url(/images/bg.png) center center no-repeat #000;
+    background-size: cover;
+    
+    .banner {
+      line-height: 520px;
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+
+      .head{
+        background: rgba(149, 149, 149, 0.52);
+        position: relative;
+        font-size: 50px;
+        border-radius: 6px;
+      }
     }
-    .logo2 {
-      vertical-align: middle;
-      margin-right: 30px;
-      height: 100px;
-      width: 100px;
-    }
-  }  
+
+    .letsconnect {
+      border-bottom: 1px solid black;
+      position: relative;
+      height:130px;
+      width: 100%;
+      line-height: 130px;
+      text-align: center;
+      text-transform: uppercase;
+      background-color: rgb(236,236,236);
+      display: inline-block;
+
+      .connect {
+        margin-right: 35px;
+        font-size: 40px;
+      }
+      .logo2 {
+        vertical-align: middle;
+        margin-right: 25px;
+        height: 50px;
+        width: 50px;
+      }
+    }  
+  }
 }
 
+.port {
+  padding-top: 20px; 
+  height: 425px;
+  position: relative;
+  line-height: 50px;  
+  text-align: center;
+
+  .portfolio {
+    height: 50px;
+    line-height: 50px;
+    font-size: 35px;
+    text-transform: uppercase;
+    width: 100%;
+    position: relative;
+  }
+
+  .portscreens {
+    margin-top: 20px;
+    text-transform: uppercase;
+
+    .screenshot {
+      position: relative;
+      display: inline-block;
+      height: 300px;
+      width: 300px;
+      border: 5px solid #b9b9b9;
+      margin: 0 4px;
+
+      .caption {
+        position: absolute;
+        bottom: 0px;
+        display: none;
+        width: 300px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+}
+
+.footer {
+  height: 50px;
+  background-color: #b9b9b9;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+
+  .normcontact {
+    font-size: 16px;
+
+    .contactfoot {
+      color: #fff;
+      margin: 0 20px;
+
+      &.email {
+        @include transition (all .5s ease);
+        
+          &:hover {
+            color:#ef5545;
+        }
+      }
+    }
+  }
+}
