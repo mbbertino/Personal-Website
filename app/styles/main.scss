@@ -1,0 +1,151 @@
+body * {
+  vertical-align: top;
+}
+
+body {
+  background: rgb(236,236,236);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  margin: 0 0;
+}
+
+@mixin contentskin {
+  background-color: #b9b9b9;
+  margin: 10px;
+  // border: 1px solid black;
+  border-radius: 6px;
+}
+
+@mixin input {
+  padding: 0 0 0 0;
+  box-shadow: 1px 1px 1px #6c6c6c;
+
+}
+
+ @mixin button ($color, $height, $width) {
+  -moz-box-shadow:inset 0px -2px 9px 1px #fce2c1;
+  -webkit-box-shadow:inset 0px -2px 9px 1px #fce2c1;
+  box-shadow:inset 0px -2px 9px 1px #fce2c1;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $color), color-stop(1, #613a36) );
+  background:-moz-linear-gradient( center top, $color 5%, #613a36 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef5645', endColorstr='#613a36');
+  background-color:#ef5645;
+  -webkit-border-top-left-radius:6px;
+  -moz-border-radius-topleft:6px;
+  border-top-left-radius:6px;
+  -webkit-border-top-right-radius:6px;
+  -moz-border-radius-topright:6px;
+  border-top-right-radius:6px;
+  -webkit-border-bottom-right-radius:6px;
+  -moz-border-radius-bottomright:6px;
+  border-bottom-right-radius:6px;
+  -webkit-border-bottom-left-radius:6px;
+  -moz-border-radius-bottomleft:6px;
+  border-bottom-left-radius:6px;
+  text-indent:0px;
+  display:inline-block;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:bold;
+  height: $height;
+  width: $width;
+  line-height: $height;
+  text-transform: uppercase;
+}
+
+.container {
+  position: relative;
+  width: 960px;
+  margin: 0px auto;
+}
+
+.header {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  width: 100%;
+  box-shadow: 1px 1px 1px #fff;
+  background-color: lighten(rgb(236,236,236),20%);
+  border-bottom: 1px solid rgb(236,236,236);
+  z-index: 100;
+
+  .innerheader {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    display: block;
+    margin: auto auto;
+    
+    .headernav{
+      position: absolute;
+      top: 0;
+      height: 100px;
+      margin-top: 0; 
+      display: inline-block;
+      list-style: none;
+      color: black;
+      text-transform: uppercase;
+
+      .listitem{
+        font-size: 24px;
+        &.name {
+          border-bottom: 1px solid black;
+          font-size: 45px;
+        }
+      }
+    }
+    .headlogo {
+      position: relative;
+      height: 70px;
+      display: inline-block;
+      margin: auto auto;
+    }
+  }
+}
+
+.content {
+  position: relative;
+  height: 520px;
+  top: 80px;
+  background: url(/images/bg.png) center center no-repeat #000;
+  background-size: cover;
+  
+  .banner {
+    line-height: 520px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+
+    .head{
+      width: 600px;
+      background: rgba(149, 149, 149, 0.52);
+      position: relative;
+      font-size: 50px;
+
+    }
+  }
+
+  .letsconnect {
+    position: relative;
+    height:200px;
+    width: 100%;
+    line-height: 200px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(236,236,236);
+    display: inline-block;
+    .connect {
+      margin-right: 35px;
+      font-size: 35px;
+    }
+    .logo2 {
+      vertical-align: middle;
+      margin-right: 30px;
+      height: 100px;
+      width: 100px;
+    }
+  }  
+}
+
